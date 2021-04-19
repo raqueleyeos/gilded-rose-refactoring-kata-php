@@ -1,35 +1,22 @@
 # GildedRose Kata - PHP Version
 
-See the [top level readme](../README.md) for general information about this exercise. This is the PHP version of the
+See the [top level readme](./GildedRoseRequirements_es.md) for general information about this exercise. This is the PHP version of the
  GildedRose Kata. 
 
 ## Installation
 
 The kata uses:
 
+- docker
 - PHP 7.2+
 - [Composer](https://getcomposer.org)
 
 Recommended:
-- [Git](https://git-scm.com/downloads)
 
-Clone the repository
-
-```sh
-git clone git@github.com:emilybache/GildedRose-Refactoring-Kata.git
-```
-
-or
+Install all the dependencies using Makefile
 
 ```shell script
-git clone https://github.com/emilybache/GildedRose-Refactoring-Kata.git
-```
-
-Install all the dependencies using composer
-
-```shell script
-cd ./GildedRose-Refactoring-Kata/php
-composer install
+make install
 ```
 
 ## Dependencies
@@ -37,10 +24,7 @@ composer install
 The project uses composer to install:
 
 - [PHPUnit](https://phpunit.de/)
-- [ApprovalTests.PHP](https://github.com/approvals/ApprovalTests.php)
 - [PHPStan](https://github.com/phpstan/phpstan)
-- [Easy Coding Standard (ECS)](https://github.com/symplify/easy-coding-standard) 
-- [PHP CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer/wiki)
 
 ## Folders
 
@@ -50,8 +34,6 @@ The project uses composer to install:
 - `tests` - contains the tests
   - `GildedRoseTest.php` - Starter test.
   - `ApprovalTest.php` - alternative approval test (set to 30 days)
-- `Fixture`
-  - `texttest_fixture.php` used by the approval test, or can be run from the command line
 
 ## Testing
 
@@ -59,14 +41,7 @@ PHPUnit is pre-configured to run tests. PHPUnit can be run using a composer scri
  root of the PHP project run:
 
 ```shell script
-composer test
-```
-
-On Windows a batch file has been created, similar to an alias on Linux/Mac (e.g. `alias pu="composer test"`), the same
- PHPUnit `composer test` can be run:
-
-```shell script
-pu
+make test
 ```
 
 ### Tests with Coverage Report
@@ -74,44 +49,14 @@ pu
 To run all test and generate a html coverage report run:
 
 ```shell script
-composer test-coverage
+make test-coverage-html
 ```
-
 The test-coverage report will be created in /builds, it is best viewed by opening **index.html** in your browser.
-
-## Code Standard
-
-Easy Coding Standard (ECS) is used to check for style and code standards, **PSR-12** is used. The current code is not
- upto standard!
-
-### Check Code
-
-To check code, but not fix errors:
+ 
+To run all test and generate a text coverage report run:
 
 ```shell script
-composer check-cs
-``` 
-
-On Windows a batch file has been created, similar to an alias on Linux/Mac (e.g. `alias cc="composer check-cs"`), the
- same PHPUnit `composer check-cs` can be run:
-
-```shell script
-cc
-```
-
-### Fix Code
-
-There are may code fixes automatically provided by ECS, if advised to run --fix, the following script can be run:
-
-```shell script
-composer fix-cs
-```
-
-On Windows a batch file has been created, similar to an alias on Linux/Mac (e.g. `alias fc="composer fix-cs"`), the same
- PHPUnit `composer fix-cs` can be run:
-
-```shell script
-fc
+make test-coverage-text
 ```
 
 ## Static Analysis
@@ -119,14 +64,7 @@ fc
 PHPStan is used to run static analysis checks:
 
 ```shell script
-composer phpstan
-```
-
-On Windows a batch file has been created, similar to an alias on Linux/Mac (e.g. `alias ps="composer phpstan"`), the
- same PHPUnit `composer phpstan` can be run:
-
-```shell script
-ps
+make phpstan
 ```
 
 **Happy coding**!

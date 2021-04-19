@@ -31,7 +31,7 @@ Bastante simple, ¿no? Bueno, ahora es donde se pone interesante:
   * si faltan 5 días o menos, la `calidad` se incrementa en `3` unidades
   * luego de la `fecha de venta` la `calidad` cae a `0`
 
-## El requerimiento
+## El requisito
 
 Hace poco contratamos a un proveedor de artículos *conjurados mágicamente*.
 Esto requiere una actualización del sistema:
