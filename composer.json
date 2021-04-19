@@ -1,0 +1,50 @@
+{
+    "name": "emilybache/gilded-rose-refactoring-kata",
+    "description": "A kata to practice refactoring, tests and polymorphism",
+    "require": {
+        "php": ">=7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "GildedRose\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "phpstan/phpstan": "0.12.83",
+        "phpstan/phpstan-phpunit": "0.12.18",
+        "symplify/easy-coding-standard": "9.2.18",
+        "symplify/phpstan-extensions": "9.2.18",
+        "approvals/approval-tests": "^1.4",
+        "phpunit/php-code-coverage": "^9.2.3",
+        "phpunit/php-file-iterator": "^3.0.5",
+        "phpunit/php-text-template": "^2.0.3",
+        "phpunit/php-timer": "^5.0.2",
+        "sebastian/comparator": "^4.0.5",
+        "sebastian/diff": "^4.0.3",
+        "sebastian/environment": "^5.1.3",
+        "sebastian/exporter": "^4.0.3",
+        "sebastian/recursion-context": "^4.0",
+        "sebastian/global-state": "^5.0.1",
+        "sebastian/object-enumerator": "^4.0.3",
+        "sebastian/resource-operations": "^3.0.3",
+        "sebastian/type": "^2.3",
+        "sebastian/version": "^3.0.2",
+        "sebastian/code-unit-reverse-lookup": "^2.0.2",
+        "sebastian/object-reflector": "^2.0"
+    },
+    "scripts": {
+        "checkcode": "phpcs src tests --standard=PSR12",
+        "fixcode": "phpcbf src tests --standard=PSR12",
+        "test": "phpunit",
+        "tests": "phpunit",
+        "test-coverage-html": "php -n -dzend_extension=xdebug -dxdebug.mode=coverage vendor/bin/phpunit -c phpunit-coverage.xml --coverage-html build/coverage",
+        "test-coverage-text": "php -n -dzend_extension=xdebug -dxdebug.mode=coverage vendor/bin/phpunit -c phpunit-coverage.xml --coverage-text",
+        "phpstan": "phpstan analyse --ansi"
+    }
+}
