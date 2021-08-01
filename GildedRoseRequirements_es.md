@@ -21,12 +21,12 @@ Bastante simple, ¿no? Bueno, ahora es donde se pone interesante:
 
 * Una vez que ha pasado la fecha recomendada de venta, la `calidad` se degrada al doble de velocidad
 * La `calidad` de un artículo nunca es negativa
-* El "Queso Brie envejecido" (`Aged brie`) incrementa su `calidad` a medida que se pone viejo
+* El "Queso Brie envejecido" (`Aged Brie`) incrementa su `calidad` a medida que se pone viejo
   * Su `calidad` aumenta en `1` unidad cada día
   * luego de la `fecha de venta` su `calidad` aumenta `2` unidades por día
 * La `calidad` de un artículo nunca es mayor a `50`
-* El artículo "Sulfuras" (`Sulfuras`), siendo un artículo legendario, no modifica su `fecha de venta` ni se degrada en `calidad`
-* Una "Entrada al Backstage", como el queso brie, incrementa su `calidad` a medida que la `fecha de venta` se aproxima
+* El artículo "Sulfuras" (`Sulfuras, Hand of Ragnaros`), siendo un artículo legendario, no modifica su `fecha de venta` ni se degrada en `calidad`
+* Una "Entrada al Backstage" (`Backstage passes to a TAFKAL80ETC concert`), como el queso brie, incrementa su `calidad` a medida que la `fecha de venta` se aproxima
   * si faltan 10 días o menos para el concierto, la `calidad` se incrementa en `2` unidades
   * si faltan 5 días o menos, la `calidad` se incrementa en `3` unidades
   * luego de la `fecha de venta` la `calidad` cae a `0`
