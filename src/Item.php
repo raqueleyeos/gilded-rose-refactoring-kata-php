@@ -4,24 +4,24 @@ declare(strict_types=1);
 
 namespace GildedRose;
 
-final class Item
+abstract class Item
 {
-    public string $name;
+    private string $name;
 
-    public int $sell_in;
+    private SellIn $sellIn;
 
-    public int $quality;
+    private Quality $quality;
 
-    public function __construct(string $name, int $sell_in, int $quality)
+    public function __construct(string $name, int $sellIn, int $quality)
     {
         $this->name = $name;
-        $this->sell_in = $sell_in;
-        $this->quality = $quality;
+        $this->sellIn = new SellIn($sellIn);
+        $this->quality = new Quality($quality);
     }
 
     public function __toString(): string
     {
-        return "{$this->name}, {$this->sell_in}, {$this->quality}";
+        return "{$this->name}, {$this->sellIn}, {$this->quality}";
     }
 
     public function name(): string
@@ -29,13 +29,45 @@ final class Item
         return $this->name;
     }
 
-    public function sell_in(): int
+    public function sellIn(): int
     {
-        return $this->sell_in;
+        return $this->sellIn->sellIn();
     }
 
     public function quality(): int
     {
-        return $this->quality;
+        return $this->quality->quality();
     }
+
+    public function increaseQuality(): void
+    {
+        $this->quality->increase();
+    }
+
+    public function decreaseQuality(): void
+    {
+        $this->quality->decrease();
+    }
+
+    public function decreaseQualityToZero(): void
+    {
+        $this->quality->decreaseToZero();
+    }
+
+    public function decreaseSellIn(): void
+    {
+        $this->sellIn->decrease();
+    }
+
+    public function hasSellInExpired(): bool
+    {
+        return $this->sellIn->hasExpired();
+    }
+
+    public function areTheseDaysOrLessLeftToSellIn(int $days): bool
+    {
+        return $this->sellIn->areTheseDaysOrLessLeft($days);
+    }
+
+    abstract public function update(): void;
 }

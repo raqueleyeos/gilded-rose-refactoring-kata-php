@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Tests;
 
 use GildedRose\GildedRose;
-use GildedRose\Item;
+use GildedRose\ItemFactory;
 use PHPUnit\Framework\TestCase;
 
 class ApprovalTest extends TestCase
@@ -218,7 +218,7 @@ class ApprovalTest extends TestCase
     {
         $itemList = [];
         foreach ($items as $data) {
-            $item = new Item($data['name'], $data['sellIn'], $data['quality']);
+            $item = ItemFactory::create($data['name'], $data['sellIn'], $data['quality']);
             array_push($itemList, $item);
         }
 
@@ -233,7 +233,7 @@ class ApprovalTest extends TestCase
             $expected = $expectedList[$pos];
 
             $this->assertEquals($expected['name'], $item->name());
-            $this->assertEquals($expected['sellIn'], $item->sell_in());
+            $this->assertEquals($expected['sellIn'], $item->sellIn());
             $this->assertEquals($expected['quality'], $item->quality());
         }
     }
